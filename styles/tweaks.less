@@ -1,0 +1,274 @@
+
+/*---------- Site Wide ----------*/
+	
+	// tweak: { "category" : "Site Wide", "label" : "Site Width", "title" : "Site Width", "type" : "value", "min" : 500, "max" : 2000, "property" : "width", "target" : ".content.primary-wrapper", "showOnlyWhenPresent" : "body:not(.collection-type-page)" }
+	@siteWidth: 1100px;
+
+	// tweak: { "category" : "Site Wide", "label" : "Page Width", "title" : "Page Width", "type" : "value", "min" : 500, "max" : 1100, "property" : "width", "target" : ".content-legible", "showOnlyWhenPresent" : ".collection-type-page" }
+	@legibleWidth: 700px;
+
+	// tweak: { "category" : "Site Wide", "label" : "Site Padding", "title" : "Site Side Padding", "type" : "value", "min" : 0, "max" : 100, "property" : "width", "target" : ".content.primary-wrapper" }
+	@siteSidePadding: 10%;
+
+	// tweak: { "category" : "Site Wide", "title" : "Background Color", "type" : "color", "target" : "body" }
+	@bodyBackgroundColor: #ffffff;
+
+	// tweak: { "category" : "Site Wide", "title" : "Body Text Color", "type" : "color", "target" : ".content p, .content ol, .content ul, .summary-price, .summary-info-item" }
+	@bodyColor: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "title" : "Body Font", "type" : "font", "loadAllVariants" : "true", "target" : ".content p, .content ol, .content ul, .summary-price, .summary-info-item" }
+	.body-font {
+		font-family: "ff-meta-web-pro", sans-serif;
+		font-size: 14px;
+		font-weight: normal;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 0px;
+		line-height: 1.6em;
+	}
+
+	// tweak: { "category" : "Site Wide", "label" : "Custom Headings", "title" : "Custom Headings", "type" : "checkbox", "active" : "false", "target" : ".content h1, .content h2, .content h3, .content h4" }
+
+	// tweak: { "category" : "Site Wide", "title" : "Heading Text Color", "type" : "color", "loadAllVariants" : "true", "target" : ".content h1, .content h2, .content h3, .content h4", "showOnlyWhenPresent" : "body:not(.custom-headings)"}
+	@headingTextColor: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "title" : "Heading Font", "type" : "font", "loadAllVariants" : "true", "target" : ".content h1, .content h2, .content h3, .content h4", "showOnlyWhenPresent" : "body:not(.custom-headings)"}
+	.heading-font {
+		font-family: "museo-sans", serif;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 1 Color", "title" : "H1 Color", "type" : "color", "loadAllVariants" : "true", "target" : ".content h1", "showOnlyWhenPresent" : ".custom-headings"}
+	@h1color: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 1 Font", "title" : "H1 Font", "type" : "font", "loadAllVariants" : "true", "target" : ".content h1", "showOnlyWhenPresent" : ".custom-headings"}
+	.h1-font {
+		font-family: "museo-sans", serif;
+		font-size: 28px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 2 Color", "title" : "H2 Color", "type" : "color", "loadAllVariants" : "true", "target" : ".content h2", "showOnlyWhenPresent" : ".custom-headings"}
+	@h2color: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 2 Font", "title" : "H2 Font", "type" : "font", "loadAllVariants" : "true", "target" : ".content h2", "showOnlyWhenPresent" : ".custom-headings"}
+	.h2-font {
+		font-family: "museo-sans", serif;
+		font-size: 22px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 3 Color", "title" : "H3 Color", "type" : "color", "loadAllVariants" : "true", "target" : ".content h3, .content h4", "showOnlyWhenPresent" : ".custom-headings"}
+	@h3color: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "label" : "Heading 3 Font", "title" : "H3 Font", "type" : "font", "loadAllVariants" : "true", "target" : ".content h3, .content h4", "showOnlyWhenPresent" : ".custom-headings"}
+	.h3-font {
+		font-family: "museo-sans", serif;
+		font-size: 18px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+
+	// tweak: { "category" : "Site Wide", "title" : "Link Color", "type" : "color", "target" : ".html-block a, .summary-excerpt a" }
+	@linkColor: #1d1d1d;
+
+	// tweak: { "category" : "Site Wide", "title" : "Tint Page Background", "type" : "checkbox", "active" : "true", "target" : ".content", "showOnlyWhenPresent" : ".collection-type-page, .collection-type-blog" }
+
+
+
+/*---------- Navigation ----------*/
+
+	// tweak: { "category" : "Navigation", "title" : "Nav Style", "type" : "dropdown", "options": ["Simple", "Box", "Line", "Tag", "Full Background", "Top Border"], "default" : "Top Border", "target" : "body" }
+
+	// tweak: { "category" : "Navigation", "title" : "Nav Accent Color", "type" : "color", "target" : "body", "showOnlyWhenPresent" : ".nav-style-tag, .nav-style-full-background, .nav-style-fit-background, .nav-style-top-border"}
+	@navAccentColor: #ffd257;
+
+	// tweak: { "category" : "Navigation", "title" : "Nav Link Color", "type" : "color", "target" : "body"}
+	@navLinkColor: #1d1d1d;
+
+	// tweak: { "category" : "Navigation", "title" : "Nav Link Font", "type" : "font", "loadAllVariants" : "true", "target" : "body" }
+	.nav-font { 
+		font-family: "museo-sans", sans-serif;
+		font-size: 12px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	// tweak: { "category" : "Navigation", "title" : "Hide Folder Indicators", "type" : "checkbox", "active" : "false", "target" : "body"}
+
+
+
+
+/*---------- Header ----------*/
+
+	
+	// tweak: { "category" : "Header", "title" : "Header Spacing", "type" : "value", "min" : 30, "max" : 200, "property" : "margin", "target" : ".header" }
+	@headerSpacing: 110px;
+
+	// tweak: { "category" : "Header", "title" : "Site Title Color", "type" : "color", "target" : ".site-title" }
+	@siteTitleColor: #1d1d1d;
+
+	// tweak: { "category" : "Header", "title" : "Site Title Font", "type" : "font", "loadAllVariants" : "true", "target" : ".site-title" }
+	.site-title-font {
+		font-family: "museo-sans", serif;
+		font-size: 72px;
+		font-weight: 100;
+		font-style: normal;
+		text-transform: uppercase;
+		letter-spacing: 15px;
+		line-height: 1em;
+	}
+
+	// tweak: { "category" : "Header", "title" : "Site Logo Width", "type" : "value", "min" : 0, "max" : 100, "property" : "width", "target" : ".site-logo-image", "showOnlyWhenPresent" : ".site-logo-image" }
+	@siteLogoMaxWidth: 100%;
+
+	// tweak: { "category" : "Header", "title" : "Site Tagline Color", "type" : "color", "target" : ".site-tagline", "showOnlyWhenPresent" : ".site-tagline"}
+	@siteTaglineColor: #b0b0b0;
+
+	// tweak: { "category" : "Header", "title" : "Site Tagline Font", "type" : "font", "loadAllVariants" : "true", "target" : ".site-tagline", "showOnlyWhenPresent" : ".site-tagline" }
+	.site-tagline-font {
+		font-family: "museo-sans", serif;
+		font-size: 14px;
+		font-weight: 400;
+		font-style: italic;
+		text-transform: none;
+		letter-spacing: 0px;
+		line-height: 1.6em;
+	}
+
+	// tweak: { "category" : "Header", "title" : "Site Tagline Spacing", "type" : "value", "min" : 0, "max" : 100, "property" : "margin", "target" : ".site-tagline", "showOnlyWhenPresent" : ".site-tagline" }
+	@siteTaglineTopMargin: 20;
+
+
+
+
+/*---------- Mobile Styles ----------*/
+
+
+	// tweak: { "category" : "Mobile Styles", "title" : "Nav Branding", "type" : "dropdown", "options": ["Show Site Title", "Upload Mobile Nav Logo"], "default" : "Show Site Title", "showOnlyWhenPresent" : ".site-logo-image" }
+
+	// tweak: { "category" : "Mobile Styles", "title" : "Nav Height", "type" : "value", "min" : 0, "max" : 100, "property" : "height" }
+	@navHeight: 60px;
+
+	// tweak: { "category" : "Mobile Styles", "title" : "Nav Logo", "type" : "image", "showOnlyWhenPresent" : ".nav-branding-upload-mobile-nav-logo" }
+	.nav-logo {
+		background-image: none; 
+	}
+
+	// tweak: { "category" : "Mobile Styles", "title" : "Nav Site Title Color", "type" : "color", "showOnlyWhenPresent" : ".nav-branding-show-site-title" }
+	@navSiteTitleColor: #ffffff;
+
+	// tweak: { "category" : "Mobile Styles", "title" : "Nav Site Title Font", "type" : "font", "loadAllVariants" : "true", "showOnlyWhenPresent" : ".nav-branding-show-site-title" }
+	.nav-site-title-font { 
+		font-family: "Playfair Display", serif;
+		font-size: 30px;
+		font-weight: 900;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: -1px;
+	}
+
+
+
+
+/*---------- Product List ----------*/
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Grid Style", "type" : "dropdown", "options": ["Organic", "Fit", "Featured"], "default" : "Organic", "target" : ".productlist", "showOnlyWhenPresent" : ".collection-type-products.view-list", "js" : "true" }
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Size", "type" : "value", "min" : 0.6, "max" : 1.8, step:0.1, "target" : ".productlist-item", "showOnlyWhenPresent" : ".collection-type-products.view-list", "js" : "true" }
+	@productImageAspectRatio: 1.3;
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Spacing", "type" : "value", "min" : 0.1, "max" : 5, step:0.1, "target" : ".productlist-item", "showOnlyWhenPresent" : ".collection-type-products.view-list", "js" : "true" }
+	@productImageSpacing: 1%;
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Info Style", "type" : "dropdown", "options": ["Simple", "Tag", "Corner", "Box", "Overlay"], "default" : "Simple", "target" : ".productlist-title-container, .productlist-price-container", "showOnlyWhenPresent" : ".collection-type-products.view-list" }
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Info", "type" : "dropdown", "options": ["Price, Title on hover", "Title, Price on hover", "Title and Price", "Price", "Title", "Price on hover", "Title on hover", "None"], "default" : "Price, Title on hover", "target" : ".productlist-title-container, .productlist-price-container", "showOnlyWhenPresent" : ".collection-type-products.view-list:not(.product-info-style-overlay)" }
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Overlay Color", "type" : "color", "target" : ".productlist-title-container, .productlist-price-container", "showOnlyWhenPresent" : ".collection-type-products.view-list.product-info-style-overlay" }
+	@productOverlayColor: rgba(255,255,255,0.9);
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Accent Color", "type" : "color", "target" : ".productlist-title-container, .productlist-price-container", "showOnlyWhenPresent" : ".collection-type-products.view-list" }
+	@productAccentColor: #1d1d1d;
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Info Font", "type" : "font", "loadAllVariants" : "true", "target" : ".productlist-title-container, .productlist-price-container", "showOnlyWhenPresent" : ".collection-type-products.view-list" }
+	.product-info-font { 
+		font-family: "futura-pt", Arial, sans-serif;
+		font-size:14px;
+		font-weight: 400;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 0px;
+	}
+
+	// tweak: { "category" : "Product Grid", "title" : "Product Sale Marker Color", "type" : "color", "target" : ".product-mark", "showOnlyWhenPresent" : ".collection-type-products.view-list" }
+	@productSaleColor: #df5a49;
+
+	// tweak: { "category" : "Product Grid", "title" : "Show Alt Image on Hover", "type" : "checkbox", "active" : "true", "target" : ".productlist-item", "showOnlyWhenPresent" : ".collection-type-products.view-list:not(.product-info-style-overlay)" }
+	
+
+
+/*---------- Product Item ----------*/
+	
+	// tweak: { "category" : "Product Item", "label" : "Details Width", "title" : "Product Details Width", "type" : "value", "min" : 30, "max" : 70, "property" : "width", "target" : ".productitem-container", "showOnlyWhenPresent" : ".collection-type-products.view-item"  }
+	@productItemDetailsWidth: 33%;
+
+	// tweak: { "category" : "Product Item", "label" : "Title + Price Color", "title" : "Product Item Heading Color", "type" : "color", "loadAllVariants" : "true", "target" : ".productitem-details", "showOnlyWhenPresent" : ".collection-type-products.view-item.custom-headings"}
+	@productTitlePriceColor: #1d1d1d;
+
+	// tweak: { "category" : "Product Item", "label" : "Title + Price Font", "title" : "Product Item Heading Font", "type" : "font", "loadAllVariants" : "true", "target" : ".productitem-details", "showOnlyWhenPresent" : ".collection-type-products.view-item.custom-headings"}
+	.product-title-price-font {
+		font-family: "museo-sans", serif;
+		font-size: 28px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.25em;
+	}
+
+	// tweak: { "category" : "Product Item", "label" : "Enable Image Zoom", "type" : "checkbox", "title" : "tweak-product-item-image-zoom-enabled", "default" : "false", "target" : ".ProductItem-gallery", "showOnlyWhenPresent" : ".collection-type-products.view-item" }
+
+	// tweak: { "category" : "Product Item", "label" : "Image Zoom Factor", "title" : "tweak-product-item-image-zoom-factor", "type" : "value", "step" : 0.5, "min" : 1, "max" : 5, "target" : ".ProductItem-gallery", "showOnlyWhenPresent" : ".collection-type-products.view-item.tweak-product-item-image-zoom-enabled", "js" : "true" }
+	@tweak-product-item-image-zoom-factor: 2.5;
+	
+	// tweak: { "category" : "Product Item", "title" : "Hide Product Share Button", "type" : "checkbox", "active" : "true", "target" : ".productitem-container .squarespace-social-buttons", "showOnlyWhenPresent" : ".collection-type-products.view-item" }
+
+
+
+/*---------- Blog ----------*/
+
+	// tweak: { "category" : "Blog", "label" : "Post Title Color", "title" : "Blog Heading Color", "type" : "color", "loadAllVariants" : "true", "target" : ".entry-title", "showOnlyWhenPresent" : ".collection-type-blog.custom-headings"}
+	@blogHeadingColor: #1d1d1d;
+
+	// tweak: { "category" : "Blog", "label" : "Post Title Font", "title" : "Blog Heading Font", "type" : "font", "loadAllVariants" : "true", "target" : ".entry-title", "showOnlyWhenPresent" : ".collection-type-blog.custom-headings"}
+	.blog-heading-font {
+		font-family: "museo-sans", serif;
+		font-size: 32px;
+		font-weight: 700;
+		font-style: normal;
+		text-transform: none;
+		letter-spacing: 1px;
+		line-height: 1.2em;
+	}
+
+	// tweak: { "category" : "Blog", "title" : "Enable Blog Sidebar", "type" : "checkbox", "active" : "true", "target" : ".blog-list", "showOnlyWhenPresent" : ".collection-type-blog" }
+
+	// tweak: { "category" : "Blog", "title" : "Hide Author", "type" : "checkbox", "active" : "false", "target" : ".entry-author, .entry-header-author", "showOnlyWhenPresent" : ".collection-type-blog" }

@@ -1,0 +1,112 @@
+	
+/*----- Loading Classes -----*/
+
+	.js {
+		.loading,
+		.galapagos-hidden {
+			opacity:0;
+			filter: alpha(opacity=0);
+
+			&:hover {
+				opacity:0;
+				filter: alpha(opacity=0);
+			}
+		}
+
+		.galapagos-display-none {
+			display:none;
+		}
+
+		.loading-height {
+			min-height:2000px;
+		}
+	}
+
+	.sticky-footer {
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+	}
+
+
+
+
+/*----- Compatibility -----*/
+
+	.lt-ie9 {
+		.svg-fallback {
+			display:block !important;
+		}
+	}
+
+
+
+
+/*----- Clear Floats -----*/
+
+	.clear-fix { *zoom: 1;
+		&:before, &:after { content: ""; display: table; }
+		&:after { clear: both;}
+	}
+
+	.clear { clear:both; }
+
+
+
+
+/*----- Mixins -----*/
+	
+	.galapagos-text-color-guarded-mixin (@a) when (lightness(@a) >= 35%) { color: #1d1d1d; }
+	.galapagos-text-color-guarded-mixin (@a) when (lightness(@a) < 65%) { color: #ffffff; }
+	.galapagos-border-color-guarded-mixin (@a) when (lightness(@a) >= 35%) { border-color: #1d1d1d; }
+	.galapagos-border-color-guarded-mixin (@a) when (lightness(@a) < 65%) { border-color: #ffffff; }
+
+	.galapagos-box-sizing-mixin {
+		box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+	}
+
+	.galapagos-transition-mixin(@string) {
+		-webkit-transition: @string;
+		-moz-transition:    @string;
+		-ms-transition:     @string;
+		-o-transition:      @string;
+		transition:			@string;
+	}
+
+	.galapagos-transform-mixin(@string){
+		-webkit-transform: @string;
+		-moz-transform:    @string;
+		-ms-transform:     @string;
+		-o-transform:      @string;
+		transform:		   @string;
+	}
+
+	.galapagos-xycenter-container-mixin {
+		content: '';
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+	}
+
+	.galapagos-xycenter-content-mixin {
+		display:inline-block;
+		vertical-align:middle;
+	}
+
+	 /* Font-smoothing
+	================================== */
+
+	.galapagos-font-smoothing (@a) when (lightness(@a) < 65%) {
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+
+	.galapagos-font-smoothing (@a) when (lightness(@a) >= 65%) {
+		-webkit-font-smoothing: subpixel-antialiased;
+		-moz-osx-font-smoothing: auto;
+	}
+

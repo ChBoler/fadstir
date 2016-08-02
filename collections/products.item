@@ -1,0 +1,103 @@
+
+{.section item}
+
+<!-- Breadcrumb -->
+
+	<ul class="productcrumb-list clear-fix">
+		
+		<li class="productcrumb-item"><a href="{collection.fullUrl}" class="productcrumb-link">{collection.title}</a></li>
+		<li class="productcrumb-item galapagos-display-none" id="jsCategoryCrumb"><a href="{collection.fullUrl}" class="productcrumb-link"></a></li>
+		<li class="productcrumb-item">{title}</li>
+
+	</ul>
+
+
+<!-- Item -->
+
+	<div class="productitem-container clear-fix" data-item-id="{id}">
+
+		<div class="productitem-mobile-header clear-fix">
+
+			<h1 class="productitem-title">{title}</h1>
+
+			<div class="productitem-tiniest-divider"></div>
+
+			{@|product-price}
+
+			<div class="productitem-mark-container">
+				{@|product-status}
+			</div>
+
+		</div>
+
+		<div class="productitem-images" id="jsProductItemImages">
+			{.repeated section items}
+				{.image?}
+					<div class="productitem-image-zoom-wrapper sqs-image-zoom-area"><img data-load="false" class="productitem-image loading" {@|image-meta} /></div>
+				{.end}
+				{.video?}
+					{@|video}
+				{.end}
+			{.end}
+		</div>
+
+		<div class="productitem-details clear-fix">
+
+			<h1 class="productitem-title">{title}</h1>
+
+			<div class="productitem-tiniest-divider"></div>
+
+			{@|product-price}
+
+			<div class="productitem-mark-container">
+				{@|product-status}
+			</div>
+
+			<div class="clear"></div>
+			
+			{.excerpt?}<div class="productitem-excerpt">{.end}
+				{.excerpt?}{excerpt}{.end}
+				{.section body}<p><a href="#more-info" class="productitem-more-info-link"><span>More Info</span> &darr;</a></p>{.end}
+			{.excerpt?}</div>{.end}
+			
+			{@|product-checkout}
+			{@|social-button-inline}
+
+			<div class="productitem-mobile-excerpt">
+				{excerpt}
+			</div>
+
+		</div>
+
+		{.section body}
+		<a name="more-info" class="clear" style="display:block;"></a>
+		<div class="productitem-description">
+			{@}
+		</div>
+		{.end}
+
+	</div>
+
+
+<!-- Pagination -->
+
+	{.if pagination}
+	<ul class="productpager-list clear-fix">
+		
+		<!-- Pagination -->
+		{.if pagination.nextItem}
+			<li class="productpager-item--next"><a href="{pagination.nextItem.fullUrl}" class="productpager-link--next"></a></li>
+		{.or}
+			<li class="productpager-item--next disabled"><a href="#" class="productpager-link--next"></a></li>
+		{.end}
+
+		{.if pagination.prevItem}
+			<li class="productpager-item--prev"><a href="{pagination.prevItem.fullUrl}" class="productpager-link--prev"></a></li>
+		{.or}
+			<li class="productpager-item--prev disabled"><a href="#" class="productpager-link--prev"></a></li>
+		{.end}
+
+	</ul>
+	{.end}
+
+{.end}

@@ -1,0 +1,73 @@
+
+{.section items}
+
+		<ul class="nav-list" data-content-field="navigation-mainNav">
+
+		{.repeated section @}
+
+			{.folder?}
+			
+				<li class="nav-item nav-folder{.if folderActive} active-folder{.end}">
+
+					<input type="checkbox" id="nav-folder-mobile-checkbox-{collection.urlId}" class="nav-folder-mobile-checkbox" />
+						
+					<a class="nav-folder-toplevel-link nav-link" aria-haspopup="true">
+						<label for="nav-folder-mobile-checkbox-{collection.urlId}" class="nav-folder-mobile-menu-label" onclick>
+							<span class="nav-link-text">{collection.navigationTitle}</span><span class="nav-folder-mobile-plus-icon"></span>
+						</label>
+					</a>
+
+					<div class="nav-folder-container">
+
+						<ul class="nav-folder-list">
+
+							{.repeated section items}
+
+								{.collection?}
+								<li class="nav-folder-item {.section active} active-link{.end}">
+									<a href="{collection.fullUrl}" class="nav-folder-link">
+										<span class="nav-folder-link-text">{collection.navigationTitle}</span>
+									</a>
+								</li>
+								{.end}
+
+								{.section externalLink}
+								<li class="nav-folder-item">
+									<a href="{url}"{.section newWindow} target="_blank"{.end} class="nav-folder-link">
+										<span class="nav-folder-link-text">{title}</span>
+									</a>
+								</li>
+								{.end}
+
+							{.end}
+
+						</ul>
+
+					</div>
+
+				</li>
+
+			{.or}
+
+				{.section collection}
+				<li class="nav-item {.if active} active-link{.end}">
+					<a href="{fullUrl}" class="nav-link">
+						<span class="nav-link-text">{navigationTitle}</span>
+					</a>
+				</li>
+				{.end}
+
+				{.section externalLink}
+				<li class="nav-item {.if active} active-link{.end}">
+					<a href="{url}"{.section newWindow} target="_blank"{.end} class="nav-link">
+						<span class="nav-link-text">{title}</span>
+					</a>
+				</li>
+				{.end}
+
+			{.end}
+			
+		{.end}
+	  	</ul>
+
+{.end}

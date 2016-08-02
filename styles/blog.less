@@ -1,0 +1,360 @@
+
+/* 	System Blog Collection Styling (Unmodified; Customizations at bottom)
+=================================================*/
+
+	.entry {
+		margin-top: 5em;
+		
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+	.entry-title {
+		margin-bottom: 0.5em;
+	}
+
+	.entry-title-passthrough:after {
+		content: " →";
+		font: normal 0.9em arial,sans-serif;
+	}
+
+	.entry-date-author {
+		margin-bottom: 2em;
+	}
+
+	.entry-more-link a:before {
+		content: "Continue →";  
+	}
+
+	.entry-footer {
+		line-height: 1.25em;
+	}
+
+	.entry-meta,
+	.entry-source {
+		margin-top: 2em;
+	}
+
+	.entry-actions {
+		margin-top: 2em;
+
+		.entry-comments {
+		display: inline-block;
+		margin-right: 1em;
+		.sqs-ui-font(bubble);
+		
+		&:before { 
+			margin-right: 0.2em;
+			position: relative;
+			top: 0.12em;
+			// start override sqs-ui-font 
+			font-size: 1.2em; 
+			width: auto;
+			height: auto;
+			line-height: inherit;
+			text-align: left;
+			vertical-align: initial;
+			// end override sqs-ui-font
+		}
+		}
+
+		.sqs-simple-like {
+		line-height: inherit; 
+		// overrides sqs-simple-like 
+		
+		.like-count {
+			margin-right: 1.2em;
+			.sqs-ui-font(heart-2);
+			// link color
+			
+			&:hover {
+			// link hover color
+			}
+			
+			&:before {
+			margin-right: 0.2em;
+			position: relative;
+			top: 0.13em;
+			// start override sqs-ui-font 
+			font-size: 1.2em; 
+			width: auto;
+			height: auto;
+			line-height: inherit;
+			text-align: left;
+			vertical-align: initial;
+			// end override sqs-ui-font 
+			}
+		}
+
+		.like-icon {
+			display: none;
+		}
+		}
+	}
+	
+	// Keep this outside .entry-actions, as it applies to other shares too
+	.ss-social-button {
+	.sqs-ui-font(share);
+	// link color
+	
+	&:hover {
+		// link hover color
+	}
+
+	&:before {
+		margin-right: 0.4em;
+		// start override sqs-ui-font 
+		font-size: 0.85em;  
+		width: auto;
+		height: auto;
+		line-height: inherit;
+		text-align: left;
+		vertical-align: initial;
+		// end override sqs-ui-font 
+	}
+
+	div {
+		display: inline-block; 
+		// sets div with no class names
+	}
+	}
+
+	.ss-social-button-icon { 
+	display: none!important;
+	}
+
+	.filter-by-tag,
+	.filter-by-author,
+	.filter-by-category {
+		margin-bottom: 3em;
+	}
+
+	.pagination {
+		line-height: 1.5em;
+		margin-top: 10em;
+		
+		> div {
+		float: left;
+		overflow: hidden;
+		width: 50%;
+		white-space: nowrap;
+		-ms-text-overflow: ellipsis;
+			text-overflow: ellipsis;
+		
+		a:after,
+		a:before {
+			font-family: arial, sans-serif;
+			font-weight: normal;
+		}
+		}
+
+		.newer a:before {
+		content: "← ";
+		}
+
+		.older {
+		float: right;
+		text-align: right;
+		
+		a:after {
+			content: " →";
+		}
+		}
+	}
+
+
+
+
+
+/* 	Template-Specific Blog Styling
+=================================================*/
+	
+	@blogContentWidth: 690px;
+	@blogSidebarWidth: 330px;
+	@blogSidebarPadding: 80px;
+
+	.collection-type-blog .content-legible {
+		max-width:@blogContentWidth;
+	}
+
+		.blog-sidebar {
+			display:none;
+		}
+
+	.enable-blog-sidebar { //tweak
+
+		&.collection-type-blog .content-legible {
+			max-width:@blogSidebarWidth + @blogSidebarPadding + @blogContentWidth;
+		}
+
+		.blog-content {
+			float:left;
+			width: calc(~"100% - "@blogSidebarWidth);
+			width: -webkit-calc(~"100% - "@blogSidebarWidth);
+			width: -moz-calc(~"100% - "@blogSidebarWidth);
+			padding-right:@blogSidebarPadding;
+			.galapagos-box-sizing-mixin;
+		}
+
+		.blog-sidebar {
+			display:block;
+			float:left;
+			width:@blogSidebarWidth;
+			.galapagos-box-sizing-mixin;
+
+			h3, h4 {
+				border-bottom:1px solid @siteBorderColor;
+				padding-bottom:1em;
+				font-size:16px;
+				text-transform: none;
+				letter-spacing: normal;
+			}
+		}
+
+	}
+
+	.lt-ie9 .enable-blog-sidebar .blog-content {
+		width:@siteWidth - @blogSidebarWidth;
+	}
+
+	.filter-by-author,
+	.filter-by-category,
+	.filter-by-tag {
+		font-style:italic;
+
+		&:before {
+			content: "Filtering by: "
+		}
+	}
+
+	.blog-sidebar,
+	.entry-content {
+
+		// Bump heading sizes down as entry title is an H1
+		h1 { font-size:22px; }
+		h2 { font-size:18px; } 
+		h3 { font-size:14px; text-transform: uppercase; font-weight: bold; }
+		h4 { font-size:14px; text-transform: uppercase; font-weight: bold; }
+	}
+
+	.entry {
+		margin-top:@vSpace*4;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+
+		.entry-header {
+			margin-bottom:@vSpace;
+			padding-bottom:@vSpace;
+			border-bottom:1px solid @siteBorderColor;
+			font-size:@body-font-font-size;
+		}
+
+			.entry-title {
+				font-size:32px;
+			}
+
+			.custom-headings {
+				h1.entry-title {
+					.blog-heading-font;
+					color: @blogHeadingColor;
+
+					a {
+						color: @blogHeadingColor;
+					}
+				}
+			}
+
+			.entry-header-date,
+			.entry-header-cat,
+			.entry-header-author,
+			.entry-header-comments {
+				display:inline-block;
+				color:@siteLighterColor;
+			}
+
+				.entry-header-date-link,
+				.entry-header-cat-link,
+				.entry-header-author-link,
+				.entry-header-comments {
+					color:@siteLighterColor;
+					line-height:1em;
+					text-decoration: none;
+				}
+
+			.entry-header-date + .entry-header-cat,
+			.entry-header-date + .entry-header-author,
+			.entry-header-cat + .entry-header-author,
+			.entry-header-author + .entry-header-comments {
+				&:before {
+					content:"\00B7";
+					margin:0 0.5em;
+					color:@siteLighterColor;
+				}
+			}
+
+			.hide-author { //tweak
+				.entry-header-author { display:none; }	
+			}
+
+		.entry-source {
+			&:before { content: "Via "; }
+			&:after { content: "."; }
+		}
+
+		.entry-footer {
+			margin:@vSpace 0 @vSpace*2 0;
+		 	border-top:1px solid @siteBorderColor;
+		}
+
+			.entry-meta {
+				float:right;
+				width:60%;
+				padding-left:20px;
+				line-height:@body-font-line-height;
+				text-align: right;
+				.galapagos-box-sizing-mixin;
+			}
+
+				.entry-author:before { content: "Posted by "; }
+				.entry-cats:before { content: " in "; }
+				.entry-tags:before { content: " and tagged "; }
+
+				.hide-author { //tweak
+					.entry-author { display:none; }
+					.entry-cats:before { content: "Posted in "; }
+					.entry-tags:before { content: "Tagged "; }
+					.entry-cats + .entry-tags:before { content: " and tagged "; }
+				}
+
+			.entry-actions {
+				float:left;
+				width:40%;
+				.galapagos-box-sizing-mixin;
+			}
+
+				.entry-comments {
+					color:@bodyColor;
+					text-decoration: none;
+				}
+
+
+	@calculatedBlogContentWidth: round((@blogSidebarWidth + @blogSidebarPadding)*2/0.90);
+
+	@media screen and (max-width: @calculatedBlogContentWidth) {
+
+		.enable-blog-sidebar {
+
+			.blog-content {
+				width:70%;
+			}
+
+			.blog-sidebar {
+				width:30%;
+			}
+		}
+
+	}

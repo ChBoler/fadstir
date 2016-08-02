@@ -1,0 +1,69 @@
+
+<section class="blog-item clear-fix">
+
+	<div class="blog-content">
+
+		{.section item}
+		<article class="entry {@|item-classes} clear" id="article-{id}" data-item-id="{id}">
+
+			<header class="entry-header">
+				<h1 data-content-field="title" class="entry-title">
+				{.passthrough?}
+					<a href="{sourceUrl}" class="entry-title-passthrough" target="_blank">{title}</a>
+				{.or}
+					<a href="{fullUrl}">{title}</a>
+				{.end}
+				</h1>
+
+				<time class="entry-header-date" datetime="{addedOn|date %F}"><a class="entry-header-date-link" href="{fullUrl}">{addedOn|date %B %e, %Y}</a></time>{.if categories}{.section categories}<span class="entry-header-cat">{.repeated section @}<a class="entry-header-cat-link" href="{collection.fullUrl}?category={@|url-encode}">{@}</a>{.alternates with}, {.end}</span>{.end}{.end}{.section author}<span class="entry-header-author"><a class="entry-header-author-link" href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}{.comments?}<a href="{fullUrl}#comments" class="entry-header-comments">{.disqus?}Comment{.or}{.section publicCommentCount}{@} Comment{@|pluralize}{.or}Comment{.end}{.end}</a>{.end}
+			</header>
+
+			<div class="entry-content">
+				{.section body}
+					{@}
+				{.end}
+
+				{.section sourceUrl}
+				<p class="entry-source"><a href="{sourceUrl}" target="_blank">{sourceUrl}</a></p>
+				{.end}
+			</div>
+
+			{.if postItemInjectCode}
+			<div class="entry-injection">
+				{postItemInjectCode}
+			</div>
+			{.end}
+			
+			<footer class="entry-footer clear">
+
+				<p class="entry-meta">
+					{.section author}<span class="entry-author"><a href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}{.if categories && tags}<span class="entry-cats">{.repeated section categories}<a href="{collection.fullUrl}?category={@|url-encode}">{@}</a>{.alternates with}, {.end}</span><span class="entry-tags">{.repeated section tags}<a href="{collection.fullUrl}?tag={@|url-encode}">{@}</a>{.alternates with}, {.end}</span>{.or}{.section categories}<span class="entry-cats">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}">{@}</a>{.alternates with}, {.end}</span>{.end}{.section tags}<span class="entry-tags">{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}">{@}</a>{.alternates with}, {.end}</span>{.end}{.end}</p>
+
+				<div class="entry-actions">
+					{@|like-button}{@|social-button-inline}
+				</div>
+
+			</footer>
+			
+		</article>
+
+		{.comments?}{@|comments}{.end}
+		{.end}  
+
+		{.if pagination}
+		<nav class="pagination clear">
+			<div class="newer">{.if pagination.prevItem}<a href="{pagination.prevItem.fullUrl}"><span>{pagination.prevItem.title}</span></a>{.end}</div>
+			<div class="older">{.if pagination.nextItem}<a href="{pagination.nextItem.fullUrl}"><span>{pagination.nextItem.title}</span></a>{.end}</div>
+		</nav>
+		{.end}
+
+	</div>
+
+	<aside class="blog-sidebar">
+		<squarespace:block-field id="sidebarBlocks" columns="1" label="Blog Sidebar Content" />
+	</aside>
+
+</section>    
+
+	
+	

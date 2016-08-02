@@ -1,0 +1,74 @@
+
+{.section items}
+
+		<ul class="footernav-list" data-content-field="navigation-mainNav">
+
+		{.repeated section @}
+
+			{.folder?}
+
+				<li class="footernav-item footernav-folder{.if folderActive} active-folder{.end}">
+
+					<input type="checkbox" id="footernav-folder-mobile-checkbox" class="footernav-folder-mobile-checkbox" />
+						
+					<a class="footernav-folder-toplevel-link footernav-link" aria-haspopup="true">
+						<label for="footernav-folder-mobile-checkbox" class="footernav-folder-mobile-menu-label" onclick>
+							<span class="footernav-link-text">{collection.navigationTitle}</span><span class="footernav-folder-mobile-plus-icon"></span>
+						</label>
+					</a>
+
+					<div class="footernav-folder-container">
+
+						<ul class="footernav-folder-list">
+
+							{.repeated section items}
+
+								{.collection?}
+								<li class="footernav-folder-item {.section active} active-link{.end}">
+									<a href="{collection.fullUrl}" class="footernav-folder-link">
+										<span class="footernav-folder-link-text">{collection.navigationTitle}</span>
+									</a>
+								</li>
+								{.end}
+
+								{.section externalLink}
+								<li class="footernav-folder-item">
+									<a href="{url}"{.section newWindow} target="_blank"{.end} class="footernav-folder-link">
+										<span class="footernav-folder-link-text">{title}</span>
+									</a>
+								</li>
+								{.end}
+
+							{.end}
+
+						</ul>
+
+					</div>
+
+				</li>
+
+			{.or}
+
+				{.section collection}
+				<li class="footernav-item {.if active} active-link{.end}">
+					<a href="{fullUrl}" class="footernav-link">
+						<span class="footernav-link-text">{navigationTitle}</span>
+					</a>
+				</li>
+				{.end}
+
+				{.section externalLink}
+				<li class="footernav-item {.if active} active-link{.end}">
+					<a href="{url}"{.section newWindow} target="_blank"{.end} class="footernav-link">
+						<span class="footernav-link-text">{title}</span>
+					</a>
+				</li>
+				{.end}
+
+			{.end}
+			
+		{.end}
+		
+	  </ul>
+
+{.end}

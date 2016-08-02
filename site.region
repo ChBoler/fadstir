@@ -1,0 +1,119 @@
+<!doctype html>
+
+<!--[if lt IE 7]>      <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html> <!--<![endif]-->
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="initial-scale=1" />
+		{squarespace-headers}
+	</head>
+
+	<body id="{squarespace.page-id}" class="{squarespace.page-classes}">
+
+		<!--NAVIGATION-->
+		<nav class="nav">
+
+			<!-- Mobile Menu Checkbox -->
+			<input type="checkbox" id="nav-mobile-checkbox" class="nav-mobile-checkbox" />
+
+			<!-- Mobile Menu Header -->
+			<header class="nav-mobile-header">
+
+				<!-- Menu Icon -->
+				<label for="nav-mobile-checkbox" class="nav-mobile-menu-label" onclick>
+					<span class="svg-fallback">&#9776;</span>
+					<svg width="12" height="10" xmlns="http://www.w3.org/2000/svg" version="1.1"><path class="burger" d="M0,1 12,1" stroke="#ffffff" stroke-width="2"/><path class="burger" d="M0,5 12,5" stroke="#ffffff" stroke-width="2"/><path class="burger" d="M0,9 12,9" stroke="#ffffff" stroke-width="2"/></svg>
+				</label>
+
+				<!-- Site Title or Logo -->
+				{.section website}
+				<h1 data-content-field="site-title" class="nav-mobile-site-title site-title">
+					<a href="/" class="nav-mobile-site-title-link site-title-link">
+						{siteTitle}
+					</a>
+				</h1>
+				{.end}
+
+				<!-- Cart Button -->
+				<div class="nav-mobile-cart">CART</div>
+
+			</header>
+
+			<div class="nav-container primary-wrapper">
+
+				<squarespace:navigation navigationId="mainNav" template="navigation" />
+
+			</div>
+
+		</nav>
+
+
+		<!--HEADER-->
+
+		<header class="header">
+
+			<div class="header-container primary-wrapper clear-fix">
+
+				<!--SITE TITLE OR LOGO-->
+
+				{.section website}
+
+					<h1 data-content-field="site-title" class="site-title {.section logoImageUrl}has-logo-image{.end}">
+						<a href="/" class="site-title-link">
+							{.section logoImageUrl}
+							 <img src="{logoImageUrl}?format=original" class="site-logo-image" alt="{siteTitle}" />
+							{.or}
+								{siteTitle}
+							{.end}
+						</a>
+					</h1>
+
+					<!--SITE TAGLINE-->
+
+					{.section siteTagLine}<p class="site-tagline">{@}</p>{.end}
+
+				{.end}
+
+			</div>
+
+		</header>
+
+
+		<!--CONTENT-->
+
+		<main class="content">
+
+			<div class="content-container primary-wrapper">
+				<div class="content-legible" data-content-field="main-content">
+					{squarespace.main-content}
+				</div>
+			</div>
+
+		</main>
+
+		<!--FOOTER WITH OPEN BLOCK FIELD-->
+
+		<footer class="footer">
+
+			<div class="footerblocks">
+				<div class="footerblocks-container primary-wrapper clear-fix">
+					<squarespace:block-field id="footerBlocksLeft" columns="1" label="Left Footer Content" />
+					<squarespace:block-field id="footerBlocksRight" columns="1" label="Right Footer Content" />
+				</div>
+			</div>
+
+			<nav class="footernav">
+				<div class="footernav-container primary-wrapper">
+					<squarespace:navigation navigationId="footerNav" template="footer-navigation" />
+				</div>
+			</nav>
+
+		</footer>
+
+		{squarespace-footers}
+		<squarespace:script src="site.js" combo="true"/>
+	</body>
+</html>

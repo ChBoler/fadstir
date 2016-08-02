@@ -1,0 +1,152 @@
+
+/* Typography
+=================================================*/
+
+
+/*----- Links -----*/
+
+	a {
+		color: @linkColor; 
+		.galapagos-transition-mixin(opacity 0.2s ease-out);
+		text-decoration: none;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+	.summary-info-item a {
+		color: @bodyColor;
+	}
+
+	p a {
+		text-decoration: underline;
+	}
+
+
+
+/*----- Headings -----*/
+
+	@h1-font-size:28px;
+	@h2-font-size:22px;
+	@h3-font-size:18px;
+	@h4-font-size:18px;
+
+	h1:not(.site-title), h2, h3, h4 {
+		.heading-font;
+		color: @headingTextColor;
+		margin: 2em 0 1em 0;
+		
+		&:first-child { margin-top: 0; }
+
+		a {
+			color: @headingTextColor;
+			text-decoration: none;
+		}
+	}
+
+	h1:not(.site-title) {
+		font-size: @h1-font-size;
+	}
+
+	h2 {
+		font-size: @h2-font-size;
+	}
+
+	h3, h4 {
+		font-size: @h3-font-size;
+	}
+
+	.custom-headings {
+		h1:not(.site-title) {
+			.h1-font;
+			color:@h1color;
+
+			a {
+				color:@h1color;
+			}
+		}
+
+		h2 {
+			.h2-font;
+			color:@h2color;
+
+			a {
+				color:@h2color;
+			}
+		}
+
+		h3, h4 {
+			.h3-font;
+			color:@h3color;
+
+			a {
+				color:@h3color;
+			}
+		}
+	}
+
+
+	
+/*----- Lists -----*/
+
+	ul, ol { 
+		a {
+			text-decoration: underline;
+		} 
+	}
+
+
+
+/*----- Quotes -----*/
+
+	blockquote {
+		font-size:1.1em;
+		line-height:1.6em;
+		font-style:italic;
+		margin:3em 0;
+		border-left:3px solid @bodyColor;
+		padding-left: 1.8em;
+	}
+
+	figure blockquote {
+		font-size:1.5em;
+		margin:0;
+		padding:0;
+		border:none;
+	}
+
+	figcaption.source {
+		font-size:1.2em;
+		line-height:1.6em;
+		font-style:normal;
+		margin:1em 0 0 0;
+		padding:0;
+		text-decoration:none;
+		text-transform: uppercase;
+	}
+
+	figure blockquote span:first-child {
+		display: inline-block;
+		position: absolute;
+		top: auto;
+		left: -35px;
+		font-size: 84px;
+		color: fade(@bodyColor,10%);
+	}
+
+
+@legibleWidthPlusGutter: @legibleWidth + 120px;
+
+@media screen and (max-width: @legibleWidthPlusGutter) {
+
+	figure blockquote span:first-child {
+		display: inline-block;
+		position: relative;
+		top: auto;
+		left: auto;
+		font-size: inherit;
+		color: @bodyColor;
+	}
+
+}
+

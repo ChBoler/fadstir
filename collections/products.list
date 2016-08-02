@@ -1,0 +1,85 @@
+
+<!--  Category Nav -->
+
+	{.section collection}
+		{.section categories}
+		<nav class="catnav" id="jsCatNav">
+			<div class="catnav-container">
+				<ul class="catnav-list">
+					<li class="catnav-item-mobile-header"></li>
+					<li class="catnav-item" id="jsCatNavRoot"><a href="{fullUrl}" class="catnav-link"><span class="catnav-link-text">All</span></a></li>
+					{.repeated section @}
+						<li class="catnav-item{.equal? categoryFilter @} active-link{.end}"><a href="{fullUrl}?category={@|url-encode}" class="catnav-link"><span class="catnav-link-text">{@}</span></a></li>
+					{.end}
+				</ul>
+			</div>
+		</nav>
+		{.end}
+	{.end}
+
+
+<!-- Product Grid -->
+
+	<div class="productlist clear-fix">
+
+		<div class="productlist-container clear-fix loading loading-height" id="jsProductGrid">
+
+		{.repeated section items}
+
+			<a href="{fullUrl}{.if categoryFilter}?category={categoryFilter|url-encode}{.end}" class="productlist-item {@|item-classes} sqs-product-quick-view-button-hover-area content-fill" data-item-id="{id}">
+
+				{.child-images?}
+					<img {@|child-image-meta} data-load="false" class="loading productlist-image--main {.section items}{.section 1}has-alt-image{.end}{.end}" />
+				{.or}
+					{.main-image?}
+						<img {@|image-meta} data-load="false" class="loading productlist-image--main {.section items}{.section 1}has-alt-image{.end}{.end}" />
+					{.end}
+				{.end}
+
+				{.section items}
+					{.section 1}
+					<img {@|image-meta} data-load="false" class="loading productlist-image--alt galapagos-hidden" />
+					{.end}
+				{.end}
+
+				{.if collection.features.productQuickView.isEnabled}
+				<div class="sqs-product-quick-view-button-wrapper">{@|product-quick-view collectionId}</div>
+				{.end}
+
+				<div class="productlist-meta">
+					<div class="productlist-title-container">{.section title}<div class="productlist-title">{@}</div>{.end}{@|product-status}</div>
+					<div class="productlist-price-container">{@|product-price}{@|product-status}</div>
+					<div class="productlist-title-price-container"><div class="productlist-title-and-price">{.section title}<div class="productlist-title">{@}</div>{.end}{@|product-price}</div>{@|product-status}</div>
+				</div>
+
+			</a>
+
+		{.end}
+
+		</div>
+
+		<div class="productlist-container--orphans clear" id="jsProductGridOrphans"></div>
+
+	</div>
+
+
+<!-- Pagination -->
+
+	{.if pagination}
+	<ul class="productpager-list clear-fix">
+
+		<!-- Pagination -->
+		{.if pagination.nextPage}
+			<li class="productpager-item--next"><a href="{pagination.nextPageUrl}" class="productpager-link--next"></a></li>
+		{.or}
+			<li class="productpager-item--next disabled"><a href="#" class="productpager-link--next"></a></li>
+		{.end}
+
+		{.if pagination.prevPage}
+			<li class="productpager-item--prev"><a href="{pagination.prevPageUrl}" class="productpager-link--prev"></a></li>
+		{.or}
+			<li class="productpager-item--prev disabled"><a href="#" class="productpager-link--prev"></a></li>
+		{.end}
+
+	</ul>
+	{.end}

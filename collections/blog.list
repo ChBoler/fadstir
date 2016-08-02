@@ -1,0 +1,77 @@
+
+<section class="blog-list clear-fix">
+
+	<div class="blog-content">
+
+		{.if authorFilter}
+		<h2 class="filter-by-author">
+			<a href="?author={author.id}">{author.displayName}</a>
+		</h2>
+		{.end}  
+
+		{.section categoryFilter}
+		<h2 class="filter-by-category">
+			<a href="?category={@}">{@}</a>
+		</h2>
+		{.end}
+
+		{.section tagFilter}
+		<h2 class="filter-by-tag">
+			<a href="?tag=={@}">{@}</a>
+		</h2>
+		{.end}
+
+		{.repeated section items}  
+		<article class="entry {@|item-classes}" id="article-{id}" data-item-id="{id}">
+
+			<header class="entry-header">
+				<h1 data-content-field="title" class="entry-title">
+				{.passthrough?}
+					<a href="{sourceUrl}" class="entry-title-passthrough" target="_blank">{title}</a>
+				{.or}
+					<a href="{fullUrl}">{title}</a>
+				{.end}
+				</h1>
+
+				<time class="entry-header-date" datetime="{addedOn|date %F}"><a class="entry-header-date-link" href="{fullUrl}">{addedOn|date %B %e, %Y}</a></time>{.if categories}{.section categories}<span class="entry-header-cat">{.repeated section @}<a class="entry-header-cat-link" href="?category={@|url-encode}">{@}</a>{.alternates with}, {.end}</span>{.end}{.end}{.section author}<span class="entry-header-author"><a class="entry-header-author-link" href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}{.comments?}<a href="{fullUrl}#comments" class="entry-header-comments">{.disqus?}Comment{.or}{.section publicCommentCount}{@} Comment{@|pluralize}{.or}Comment{.end}{.end}</a>{.end}
+			</header>
+			
+			<div class="entry-content">
+				{.excerpt?}
+					{excerpt}
+					<p class="entry-more-link"><a href="{fullUrl}"></a></p>
+				{.or}
+					{.section body}
+						{@}
+					{.end}
+				{.end}
+
+				{.section sourceUrl}
+				<p class="entry-source"><a href="{sourceUrl}" target="_blank">{sourceUrl}</a></p>
+				{.end}
+			</div>
+
+			{.if postItemInjectCode}
+			<div class="entry-injection">
+				{postItemInjectCode}
+			</div>
+			{.end}
+		
+		</article>
+		{.end}
+
+		{.if pagination}
+		<nav class="pagination clear">
+			<div class="newer">{.if pagination.prevPage}<a href="{pagination.prevPageUrl}">Newer</a>{.end}</div>
+			<div class="older">{.if pagination.nextPage}<a href="{pagination.nextPageUrl}">Older</a>{.end}</div>
+		</nav>
+		{.end}
+
+	</div>
+
+	<aside class="blog-sidebar">
+		<squarespace:block-field id="sidebarBlocks" columns="1" label="Blog Sidebar Content" />
+	</aside>
+	
+</section>
+

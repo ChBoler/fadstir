@@ -1,0 +1,47 @@
+<article class="ProductItem {@|item-classes}" data-item-id="{id}">
+
+  <section class="ProductItem-summary clear">
+    <figure class="ProductItem-gallery">
+      {.section items}
+        <div class="ProductItem-gallery-slides">
+          {.repeated section @}
+            {.image?}
+              <div class="ProductItem-gallery-slides-item" data-slide-index="{@index}"><img class="ProductItem-gallery-slides-item-image" data-load="false" {@|image-meta} /></div>
+            {.end}
+            {.video?}
+              {@|video}
+            {.end}
+          {.end}
+        </div>
+      {.end}
+      <div class="ProductItem-gallery-thumbnails">
+        {.if items.1}{.repeated section items}<div class="ProductItem-gallery-thumbnails-item"><img class="ProductItem-gallery-thumbnails-item-image" data-load="false" {@|image-meta} /></div>{.end}{.end}
+      </div>
+    </figure>
+
+
+    <section class="ProductItem-details">
+
+      <h1 class="productitem-title"><a class="ProductItem-details-title-link" href="{fullUrl}">{title}</a></h1>
+
+      <div class="productitem-tiniest-divider"></div>
+
+      {@|product-price}
+
+      <div class="productitem-mark-container">
+        {@|product-status}
+      </div>
+
+      <div class="clear"></div>
+
+      {.excerpt?}
+        <div class="productitem-excerpt">{excerpt|safe|truncate 180}</div>
+      {.end}
+      
+      {@|product-checkout}
+
+      <a class="ProductItem-details-quickViewFullItemLink" href="{fullUrl}"><span class="ProductItem-details-quickViewFullItemLink-wrapper">View Full Item</span></a>
+    </section>
+  </section>
+
+</article>

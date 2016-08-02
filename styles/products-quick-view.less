@@ -1,0 +1,133 @@
+/* Product Quick View
+ *
+ * A pared-down version of what's used for
+ * Products Collection 2.0.
+=================================================*/
+
+
+/* ----- Quick View Button ----- */
+
+.collection-type-products.view-list {
+
+  .sqs-product-quick-view-button-wrapper {
+    z-index: 100;
+  }
+
+  // Show the first item's button when the Style Editor is open
+  &.sqs-style-mode-active .productlist-item:first-child .sqs-product-quick-view-button-wrapper {
+    opacity: 1;
+  }
+}
+
+// Show the button on hover
+.no-touch & .sqs-product-quick-view-button-hover-area:hover .sqs-product-quick-view-button-wrapper {
+  opacity: 1;
+}
+
+
+
+/* ----- Quick View Lightbox ----- */
+
+.ProductItem {
+
+  &-gallery {
+
+    margin: 0;
+    float: left;
+
+    &-slides {
+      position: relative;
+
+      &:before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      &-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        line-height: 0;
+        
+        &-image {
+          .galapagos-transition-mixin(opacity 0.4s ease-in);
+
+          &:not(.loaded) {
+            opacity: 0;
+          }
+        }
+
+        &-image:not(.loaded) + .sqs-image-zoom-duplicate {
+          opacity: 0;
+        }
+      }
+    }
+
+
+    &-thumbnails {
+
+      margin-left: -1 * 10px;
+      line-height: 0;
+      text-align: left;
+
+      &-item {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 10px 0 0 10px;
+
+        img {
+          .galapagos-transition-mixin(opacity 0.4s ease-in);
+
+          &:not(.loaded) {
+            opacity: 0;
+          }
+        }
+      }
+    }
+
+  }
+
+  &-details {
+    position: relative;
+    float: left;
+    .galapagos-box-sizing-mixin();
+
+
+    a.ProductItem-details-title-link {
+      border: none;
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        opacity: 1;
+        color: inherit;
+      }
+    }
+
+    // Overrides Product Quick View mixin to work with Galapagos.
+    .guarded-mixin-min-details-spacing-galapagos-override(@tweak-product-quick-view-lightbox-padding);
+    .guarded-mixin-min-details-spacing-galapagos-override(@x) when (@x < 45px) {
+      padding: (45px - @x) (45px - @x) (45px - @x) 45px;
+    }
+    .guarded-mixin-min-details-spacing-galapagos-override(@x) when (@x >= 45px) {
+      padding: 0 0 0 @tweak-product-quick-view-lightbox-padding;
+    }
+    .guarded-mixin-min-details-spacing-galapagos-override(@x) when (@x >= 65px) {
+      padding: 0 0 0 65px;
+    }
+
+    &-quickViewFullItemLink {
+      opacity: 0.6;
+      display: inline-block;
+
+      &-wrapper {
+        border-bottom: 1px solid lighten(@bodyColor, 50%);
+      }
+    }
+  }
+}
